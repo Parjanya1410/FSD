@@ -1,23 +1,26 @@
-import logo from './logo.svg';
+//import logo from './logo.svg';
 import './App.css';
-import Home from './components/Home/Home';
-import About from './components/About/About';
-import Contact from './components/Contact Us/Contact';
-import {BrowserRouter,Routes,Route} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar/Index';
+import Home from './components/Pages/Home';
+import About from './components/Pages/About';
+import Services from './components/Pages/Services';
+import Contact from './components/Pages/Contact';
+import Signup from './components/Pages/Signup';
 
 function App() {
   return (
-    <div className="Wrapper">
-      <h1>Marine Mammals</h1>
-      <BrowserRouter>
-       <Routes>
-        <Route exact path="/" element={<Home/>}/>
-        <Route exact path="/about" element={<About/>}/>
-        <Route exact path="/Contact" element={<Contact/>}/>
-       </Routes>
-      </BrowserRouter>
-    </div>
-    );
+    <Router>
+      <Navbar />
+      <Routes>
+        <Route path='/' exact element={<Home />} />
+        <Route path='/about' element={<About />} />
+        <Route path='/services' element={<Services />} />
+        <Route path='/contact-us' element={<Contact />} />
+        <Route path='/sign-up' element={<Signup />} />
+      </Routes>
+    </Router>
+  );
 }
 
 export default App;
